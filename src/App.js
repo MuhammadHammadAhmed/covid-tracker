@@ -10,14 +10,7 @@ function App() {
         <p>
           <h2>Wait for it. Covid19 Tracker app is coming soon</h2>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       
       </header>
     </div>
   );
