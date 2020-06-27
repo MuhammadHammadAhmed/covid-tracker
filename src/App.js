@@ -1,17 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useEffect,useState} from 'react';
+/* can do concize*/
+import Cards from './components/Cards/Cards';
+import Charts from './components/Charts/Charts';
+import CountryPicker from './components/CountryPicker/CountryPicker';
+/* can do concize*/
+ import {fetchData} from  './api/';
+import styles from './App.module.css';
+// import { useState, useEffect } from 'react';
 
+ 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <h2>Wait for it. Covid19 Tracker app is coming soon</h2>
-        </p>
-       
-      </header>
+
+  // const url='https://covid19.mathdro.id/api';
+  const [covidData, setcovidData] = useState({});
+  useEffect(()=>{
+    console.log("Before Load Data");
+    loadData();
+
+  },[]);
+
+  const loadData= async()=>{
+    // const response = await fetch(url);
+    // const data = await response.json;
+    
+    const data = await fetchData();
+    setcovidData(data)
+    console.log("DATA",data);
+    
+
+  }
+  return(
+    <div className={styles.ontainer}>
+      <Cards data ={covidData}/>
+      <CountryPicker/>
+      <Charts/>
     </div>
   );
 }
