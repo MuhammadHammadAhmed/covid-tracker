@@ -6,7 +6,7 @@ import CountryPicker from './components/CountryPicker/CountryPicker';
 /* can do concize*/
  import {fetchData} from  './api/';
 import styles from './App.module.css';
-// import { useState, useEffect } from 'react';
+
 
  
 function App() {
@@ -30,7 +30,7 @@ function App() {
 
   }
   return(
-    <div className={styles.ontainer}>
+    <div className={styles.container}>
       <Cards data ={covidData}/>
       <CountryPicker/>
       <Charts/>
