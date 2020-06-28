@@ -3,6 +3,7 @@ import React,{useEffect,useState} from 'react';
 import Cards from './components/Cards/Cards';
 import Charts from './components/Charts/Charts';
 import CountryPicker from './components/CountryPicker/CountryPicker';
+
 /* can do concize*/
  import {fetchData} from  './api/';
 import styles from './App.module.css';
