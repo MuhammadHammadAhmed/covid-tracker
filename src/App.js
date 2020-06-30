@@ -15,7 +15,7 @@ function App() {
   // const url='https://covid19.mathdro.id/api';
   const [covidData, setcovidData] = useState({});
   useEffect(()=>{
-    console.log("Before Load Data");
+   
     loadData();
 
   },[]);
