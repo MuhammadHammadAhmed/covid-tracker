@@ -13,7 +13,7 @@ try {
     
 }
 }
-export const fetchDailyData=async()=>{
+export const fetchDailyData= async()=>{
 try{
     const  {data}  = await axios.get(`${url}/daily`);
 
@@ -27,3 +27,18 @@ try{
         return error;
     }
 }  
+export const fetchcountries= async()=>{
+try{
+    const {data:{countries}}= await axios.get(`${url}/countries`);
+    console.log("Countries",countries);
+    const cpountryList = countries.map(country =>( country.name));
+    console.log("CountryList",cpountryList);
+
+    
+return cpountryList;
+}catch(error){
+   
+    console.log(error);
+   // return error;
+}
+}
