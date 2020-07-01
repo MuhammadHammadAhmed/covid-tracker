@@ -1,6 +1,6 @@
 import React ,{useEffect,useState} from 'react';
 import {fetchDailyData}from '../../api/';
-import {Line, Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';//, Bar
 import  styles from './Charts.module.css';
 
 const Charts=() =>{
@@ -14,7 +14,6 @@ const Charts=() =>{
        const data=await fetchDailyData();
 
        setDailyData(data);
-       console.log("DAILY DATA",dailyData);
     }
    const lineChart= (
       dailyData.length?(

@@ -26,13 +26,13 @@ function App() {
     
     const data = await fetchData();
     setcovidData(data)
-    console.log("DATA",data);
     
 
   }
   return(
     <div className={styles.container}>
       <Cards data ={covidData}/>
+      <br></br>
       <CountryPicker/>
       <Charts/>
     </div>
