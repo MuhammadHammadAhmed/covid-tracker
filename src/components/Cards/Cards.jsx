@@ -5,7 +5,7 @@ import  styles from './Cards.module.css';
 import cx from 'classnames';
 
 const Cards=({data:{confirmed,deaths,lastUpdate,recovered}}) =>{
-    console.log("Confirmed",confirmed);
+    
     if(!confirmed){
         return ('Loading');
     }
