@@ -2,9 +2,14 @@ import axios from 'axios';
 
 const url='https://covid19.mathdro.id/api';
 
-export const fetchData = async()=>{
+export const fetchData = async(country)=>{
 try {
-    const {data:{confirmed,recovered,deaths,lastUpdate}} = await axios.get(url);
+    let changedUrl = url;
+if(country){
+    changedUrl=`${url}/countries/${country}`;
+    console.log("ChangedURL",changedUrl);
+}
+    const {data:{confirmed,recovered,deaths,lastUpdate}} = await axios.get(changedUrl);
     const modifiedData={confirmed,recovered, deaths,lastUpdate};// because  of same key and values 
 
     return modifiedData;
@@ -30,12 +35,12 @@ try{
 export const fetchcountries= async()=>{
 try{
     const {data:{countries}}= await axios.get(`${url}/countries`);
-    console.log("Countries",countries);
-    const cpountryList = countries.map(country =>( country.name));
-    console.log("CountryList",cpountryList);
+    console.log("Countriesin API",countries);
+    const countryList = countries.map(country =>( country.name));
+    console.log("CountryListpost API",countryList);
 
     
-return cpountryList;
+return countryList;
 }catch(error){
    
     console.log(error);

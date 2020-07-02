@@ -8,10 +8,14 @@ import CountryPicker from './components/CountryPicker/CountryPicker';
  import {fetchData} from  './api/';
 import styles from './App.module.css';
 
-const handleCountryChange= async(country)=>{
 
-  console.log(country);
-}
+//const [country,setCountry]= useState('');
+// const handleCountryChange= async(_country)=>{
+
+  
+//   setCountry(_country);
+//   console.log(country);
+// }
  
 function App() {
 
@@ -22,13 +26,19 @@ function App() {
    
     loadData();
 
-  },[]);
+  },);
 
+  const handleCountryChange= async(_country)=>{
+
+  
+    setCountry(_country);
+    console.log("Selected Country",_country);
+  }
   const loadData= async()=>{
     // const response = await fetch(url);
     // const data = await response.json;
     
-    const data = await fetchData();
+    const data = await fetchData(country);
     setcovidData(data)
     
 

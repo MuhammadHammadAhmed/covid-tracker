@@ -33,7 +33,7 @@ start={0} end={recovered.value} duration = {2.5} separator =","
 />
     </Typography>
 <Typography color ="textSecondary" >{new Date(lastUpdate).toDateString()}</Typography>
-<Typography variant ="body2">The number of recovered patientsfrom COVID-19</Typography>
+<Typography variant ="body2">The number of recovered patients from COVID-19</Typography>
     </CardContent>
 </Grid>
 

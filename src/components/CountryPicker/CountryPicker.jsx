@@ -13,13 +13,13 @@ useEffect(()=>{
     loadCountries();
 //console.log("Countries List",countriesList);
 },[]);
-console.log("CountriesList1",countriesList);
+console.log("CountriesList in load Country Picker",countriesList);
     return(
         <FormControl className={styles.formControl}>
              <NativeSelect defaultValue="" onChange={(e)=>handleCountryChange(e.target.value)}> 
-            {/* <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}> */}
+           
                 <option value="global">Global</option>
-                {/* {countriesList.map((country,i)=><option key={i} value={country}>{country}</option>)} */}
+                
                 {countriesList.map((country, i) => <option key={i} value={country}>{country}</option>)}
 
                 
