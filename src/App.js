@@ -8,12 +8,16 @@ import CountryPicker from './components/CountryPicker/CountryPicker';
  import {fetchData} from  './api/';
 import styles from './App.module.css';
 
+const handleCountryChange= async(country)=>{
 
+  console.log(country);
+}
  
 function App() {
 
   // const url='https://covid19.mathdro.id/api';
   const [covidData, setcovidData] = useState({});
+  const [country,setCountry]= useState('');
   useEffect(()=>{
    
     loadData();
@@ -33,7 +37,7 @@ function App() {
     <div className={styles.container}>
       <Cards data ={covidData}/>
       <br></br>
-      <CountryPicker/>
+      <CountryPicker handleCountryChange={handleCountryChange} />
       <Charts/>
     </div>
   );
