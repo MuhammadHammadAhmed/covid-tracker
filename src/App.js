@@ -48,7 +48,7 @@ function App() {
       <Cards data ={covidData}/>
       <br></br>
       <CountryPicker handleCountryChange={handleCountryChange} />
-      <Charts/>
+      <Charts data={covidData}/>
     </div>
   );
 }

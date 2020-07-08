@@ -3,7 +3,7 @@ import {fetchDailyData}from '../../api/';
 import {Line} from 'react-chartjs-2';//, Bar
 import  styles from './Charts.module.css';
 
-const Charts=() =>{
+const Charts=({data:{confirmed,recovered,deaths}}) =>{
     const [dailyData,setDailyData]= useState([]);
 
     useEffect(()=>{
@@ -41,6 +41,7 @@ const Charts=() =>{
       
    
 ): null);
+
     return(
         <div className={styles.container}>
             {lineChart}
