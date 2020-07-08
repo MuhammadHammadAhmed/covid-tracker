@@ -47,3 +47,20 @@ return countryList;
    // return error;
 }
 }
+export const fetchcountryTotals= async()=>{
+    const newURl= 'https://api.thevirustracker.com/free-api?countryTotals=ALL';
+    try{
+        const {data:{countryitems}} = await axios.get(newURl);
+        console.log("newAPI",countryitems);
+        // console.log("Countriesin API",countries);
+        // const countryList = countries.map(country =>( country.name));
+        // console.log("CountryListpost API",countryList);
+    
+        
+    return data;
+    }catch(error){
+       
+        console.log(error);
+       // return error;
+    }
+    }
