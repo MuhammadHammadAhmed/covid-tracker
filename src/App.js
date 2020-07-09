@@ -5,7 +5,7 @@ import Charts from './components/Charts/Charts';
 import CountryPicker from './components/CountryPicker/CountryPicker';
 
 /* can do concize*/
- import {fetchData, fetchcountryTotals} from  './api/';
+ import {fetchData} from  './api/';
 import styles from './App.module.css';
 
 
@@ -37,8 +37,7 @@ function App() {
   const loadData= async()=>{
     // const response = await fetch(url);
     // const data = await response.json;
-    const totals = await fetchcountryTotals();
-    console.log("Totals",totals);
+    
     const data = await fetchData(country);
     setcovidData(data)
     
@@ -49,7 +48,7 @@ function App() {
       <Cards data ={covidData}/>
       <br></br>
       <CountryPicker handleCountryChange={handleCountryChange} />
-      <Charts/>
+      <Charts data={covidData}/>
     </div>
   );
 }

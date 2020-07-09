@@ -1,4 +1,5 @@
 import axios from 'axios';
+//import  list  from  './country-totals.json';
 
 const url='https://covid19.mathdro.id/api';
 
@@ -35,9 +36,9 @@ try{
 export const fetchcountries= async()=>{
 try{
     const {data:{countries}}= await axios.get(`${url}/countries`);
-    console.log("Countriesin API",countries);
+   // console.log("Countriesin API",countries);
     const countryList = countries.map(country =>( country.name));
-    console.log("CountryListpost API",countryList);
+    console.log("CountryList post API",countryList);
 
     
 return countryList;
@@ -47,20 +48,55 @@ return countryList;
    // return error;
 }
 }
-export const fetchcountryTotals= async()=>{
+export const fetchcountryTotals= async(setCountryTotals)=>{
     const newURl= 'https://api.thevirustracker.com/free-api?countryTotals=ALL';
     try{
-        const {data:{countryitems}} = await axios.get(newURl);
-        console.log("newAPI",countryitems);
-        // console.log("Countriesin API",countries);
-        // const countryList = countries.map(country =>( country.name));
-        // console.log("CountryListpost API",countryList);
-    
+        const {data} = await axios.get(newURl);
+    const countryitems=data.countryitems[0];
+        console.log("newAPI",typeof(data.countryitems),countryitems);
+
         
-    return data;
+        var list=[];
+        var x;
+        for (x in countryitems) {
+            console.log("countryItems",countryitems[x].title);
+            var country={
+                name:countryitems[x].title,
+                code:countryitems[x].code
+            }
+            list.push(country);
+          }
+     console.log("CList",list);
+     setCountryTotals(list);
+    return list;
     }catch(error){
        
         console.log(error);
        // return error;
     }
     }
+    export const fetchGlobalStats= async()=>{
+        const newURl= 'https://api.thevirustracker.https://api.thevirustracker.com/free-api?global=stats/free-api?countryTotals=ALL';
+        try{
+            const data = await axios.get(newURl);
+        const countryitems=data.countryitems[0];
+            console.log("newAPI",typeof(data.countryitems),countryitems);
+    
+            
+            var list=[];
+            var x;
+            for (x in countryitems) {
+                console.log("countryItems",countryitems[x].title);
+                var country={
+                    name:countryitems[x].title,
+                    code:countryitems[x].code
+                }
+                list.push(country);
+              }
+         console.log("CList",list);
+        return list;
+        }catch(error){
+           
+            console.log(error);
+        }
+        }
